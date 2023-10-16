@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Index Aeroport</title>
+        <title>Index Compagnie</title>
     </head>
 
     <body>
-        <h1>Aeroports</h1>
+        <h1>Compagnies</h1>
         <div>
             @if(session()->has('success'))
                 <div>
@@ -15,7 +15,7 @@
         </div>
         <div>
             <div>
-                <a href="{{route('aeroports.create')}}">Ajouter un aeroport</a>
+                <a href="{{route('compagnies.create')}}">Ajouter une compagnie</a>
                 <div>&nbsp;&nbsp;</div>
                 <a href="{{route('aeroports.main')}}">Retour à la page principal</a>
             </div>
@@ -23,26 +23,22 @@
             <table border="1">
                 <tr>
                     <th>Id</th>
-                    <th>Nom Aeroport</th>
-                    <th>Ville</th>
-                    <th>Ville</th>
-                    <th>Nombre de Piste</th>
+                    <th>Nom Compagnie</th>
+                    <th>Pays Compagnie</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                @foreach($aeroports as $aeroports)
+                @foreach($compagnies as $compagnies)
                     <tr>
-                        <td>{{$aeroports->id}}</td>
-                        <td>{{$aeroports->nom_aeroport}}</td>
-                        <td>{{$aeroports->ville_aeroport}}</td>
-                        <td>{{$aeroports->code}}</td>
-                        <td>{{$aeroports->nombre_piste}}</td>
+                        <td>{{$compagnies->id}}</td>
+                        <td>{{$compagnies->nom_compagnie}}</td>
+                        <td>{{$compagnies->pays}}</td>
                         <td>
-                            <a href="{{route('aeroports.edit', ['aeroports' => $aeroports])}}">Edit</a>
+                            <a href="{{route('compagnies.edit', ['compagnies' => $compagnies])}}">Edit</a>
                         </td>
                         <td>
-                            {{-- <form method="post" action="{{route('aeroports.destroy'), ['aeroports' => $aeroports]}}"> --}}
-                            <form method="post" action="{{route('aeroports.destroy', [$aeroports])}}">
+                            {{-- <form method="post" action="{{route('compagnies.destroy'), ['compagnies' => $compagnies]}}"> --}}
+                            <form method="post" action="{{route('compagnies.destroy', [$compagnies])}}">
                                 @csrf
                                 @method('delete')
                                 <input type="submit" value="Delete"/>

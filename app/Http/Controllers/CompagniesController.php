@@ -12,7 +12,8 @@ class CompagniesController extends Controller
      */
     public function index()
     {
-        //
+        $compagnies = Compagnies::all();
+        return view('compagnies.index', ['compagnies' => $compagnies]);
     }
 
     /**
@@ -20,7 +21,7 @@ class CompagniesController extends Controller
      */
     public function create()
     {
-        //
+        return view('compagnies.create');
     }
 
     /**
@@ -28,7 +29,13 @@ class CompagniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nom_compagnie' =>'required|alpha_dash:ascii',
+            'pays' =>'required|alpha_dash:ascii'
+        ]);
+
+        $newCompany = Compagnies::create($data);
+        return redirect(route('compagnies.index'));
     }
 
     /**
@@ -44,7 +51,7 @@ class CompagniesController extends Controller
      */
     public function edit(Compagnies $compagnies)
     {
-        //
+        return view('compagnies.edit', ['compagnies' => $compagnies]);
     }
 
     /**
@@ -52,7 +59,13 @@ class CompagniesController extends Controller
      */
     public function update(Request $request, Compagnies $compagnies)
     {
-        //
+        $data = $request->validate([
+            'nom_compagnie' =>'required|alpha_dash:ascii',
+            'pays' =>'required|alpha_dash:ascii'
+        ]);
+
+        $compagnies->update($data);
+        return redirect(route('compagnies.index'))->with('success', 'Compagnie édité avec succès');
     }
 
     /**
@@ -60,6 +73,7 @@ class CompagniesController extends Controller
      */
     public function destroy(Compagnies $compagnies)
     {
-        //
+        $compagnies->delete();
+        return redirect(route('compagnies.index'))->with('success', 'Compagnie supprimé avec succès');
     }
 }

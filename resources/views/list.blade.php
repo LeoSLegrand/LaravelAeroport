@@ -9,14 +9,14 @@
 
         <table>
             <tr>
-                <td>Numéro Vol</td>
-                <td>Compagnie</td>
-                <td>Nombre place</td>
-                <td>Date départ</td>
-                <td>Date arivée</td>
-                <td>Heure départ</td>
-                <td>Heure arivée</td>
-                <td>Aeroport départ</td>
+                <td>Numéro Vol &nbsp;&nbsp;</td>
+                <td>Compagnie &nbsp;&nbsp;</td>
+                <td>Nombre place &nbsp;&nbsp;</td>
+                <td>Date départ &nbsp;&nbsp;</td>
+                <td>Date arivée &nbsp;&nbsp;</td>
+                <td>Heure départ &nbsp;&nbsp;</td>
+                <td>Heure arivée &nbsp;&nbsp;</td>
+                <td>Aeroport départ &nbsp;&nbsp;</td>
                 <td>Aeroport arivée</td>
             </tr>
             @foreach($vols as $vols)
@@ -30,14 +30,50 @@
                 <td>{{$vols['heure_arivee']}}</td>
                 <td>{{$vols['aeroport_id_depart']}}</td>
                 <td>{{$vols['aeroport_id_arivee']}}</td>
-
             </tr>
             @endforeach
         </table>
 
         <br><br>
-        <a href="/tableau">Lien vers la page tableau (Work in progress)</a>
+        <h1>Tableau affichage nombre de vol par mois</h1>
+        <table>
+            <tr>
+                <td>Janvier &nbsp;&nbsp;</td>
+                <td>Fevrier &nbsp;&nbsp;</td>
+                <td>Mars &nbsp;&nbsp;</td>
+                <td>Avril &nbsp;&nbsp;</td>
+                <td>Mai &nbsp;&nbsp;</td>
+                <td>Juin &nbsp;&nbsp;</td>
+                <td>Juillet &nbsp;&nbsp;</td>
+                <td>Aout &nbsp;&nbsp;</td>
+                <td>Septembre &nbsp;&nbsp;</td>
+                <td>Octobre &nbsp;&nbsp;</td>
+                <td>Novembre &nbsp;&nbsp;</td>
+                <td>Decembre &nbsp;&nbsp;</td>
+            </tr>
+            {{-- @foreach($vols as $vols)
+            <tr>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+                <td>{{$vols}}</td>
+            </tr>
+            @endforeach --}}
+        </table>
+
         <br><br>
         <a href="/aeroport/index">Lien vers la gestion des aeroports</a>
+        <div>&nbsp;&nbsp;</div>
+        <a href="/company/index">Lien vers la gestion des companies</a>
+        <div>&nbsp;&nbsp;</div>
+        <a href="/vol/index">Lien vers la gestion des vols</a>
     </body>
 </html>

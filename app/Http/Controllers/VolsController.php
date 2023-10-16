@@ -16,7 +16,9 @@ class VolsController extends Controller
 
         //     return Vols::parse($date->date_depart)->format('m');
         // });
-        return view('tableau');
+        //return view('tableau');
+        $vols = Vols::all();
+        return view('vols.index', ['vols' => $vols]);
     }
 
     /**
@@ -24,7 +26,7 @@ class VolsController extends Controller
      */
     public function create()
     {
-        //
+        return view('vols.create');
     }
 
     /**
@@ -32,7 +34,17 @@ class VolsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'numero' =>'required|integer',
+            'date_depart' =>'required|date|',
+            'date_arivee' =>'required|date|after:date_depart',
+            'heure_depart' =>'required|date_format:H:i:s',
+            'heure_arivee' =>'required|date_format:H:i:s|after:heure_depart',
+            'nombre_place' =>'required|integer'
+        ]);
+
+        $newVol = Vols::create($data);
+        return redirect(route('vols.index'));
     }
 
     /**
@@ -48,9 +60,18 @@ class VolsController extends Controller
         ->orderBy('heure_depart', 'desc')
         ->get();
 
-
-        //$data = Vols::all();
         return view('list',['vols'=>$data]);
+
+
+        // $results = Vols::select(
+        //     DB::raw("DATE_FORMAT(date_depart, '%m-%Y')"),
+        //     DB::raw("(COUNT(*)) as vol"),
+        //     DB::raw("sum(amount)")
+        // )->orderBy('date_depart')
+        //     ->groupBy(DB::raw("DATE_FORMAT(date_depart, '%m-%Y')"))
+        //     ->get();
+
+        // return view('list',['vols'=>$result]);
     }
 
     /**
@@ -58,7 +79,7 @@ class VolsController extends Controller
      */
     public function edit(Vols $vols)
     {
-        //
+        return view('vols.edit', ['vols' => $vols]);
     }
 
     /**
@@ -66,7 +87,17 @@ class VolsController extends Controller
      */
     public function update(Request $request, Vols $vols)
     {
-        //
+        $data = $request->validate([
+            'numero' =>'required|integer',
+            'date_depart' =>'required|date|',
+            'date_arivee' =>'required|date|after:date_depart',
+            'heure_depart' =>'required|date_format:H:i:s',
+            'heure_arivee' =>'required|date_format:H:i:s|after:heure_depart',
+            'nombre_place' =>'required|integer'
+        ]);
+
+        $vols->update($data);
+        return redirect(route('vols.index'))->with('success', 'Vol édité avec succès');
     }
 
     /**
@@ -74,6 +105,7 @@ class VolsController extends Controller
      */
     public function destroy(Vols $vols)
     {
-        //
+        $vols->delete();
+        return redirect(route('vols.index'))->with('success', 'Vol supprimé avec succès');
     }
 }

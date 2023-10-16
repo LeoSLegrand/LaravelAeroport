@@ -50,5 +50,10 @@
             </div>
         </form>
 
+        <br>
+        <div>
+            <a href="{{route('aeroports.index')}}">Retour à la liste Aeroport</a>
+        </div>
+
     </body>
 </html>

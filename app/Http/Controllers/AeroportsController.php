@@ -22,7 +22,6 @@ class AeroportsController extends Controller
     public function create()
     {
         return view('aeroports.create');
-
     }
 
     /**
@@ -71,7 +70,6 @@ class AeroportsController extends Controller
 
         $aeroports->update($data);
         return redirect(route('aeroports.index'))->with('success', 'Aeroport édité avec succès');
-
     }
 
     /**
@@ -81,6 +79,5 @@ class AeroportsController extends Controller
     {
         $aeroports->delete();
         return redirect(route('aeroports.index'))->with('success', 'Aeroport supprimé avec succès');
-
     }
 }
