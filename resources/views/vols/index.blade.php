@@ -34,17 +34,17 @@
                 </tr>
                 @foreach($vols as $vols)
                     <tr>
-                        <td>{{$vols->id}}</td>
-                        <td>{{$vols->numero}}</td>
-                        <td>{{$vols->date_depart}}</td>
-                        <td>{{$vols->date_arivee}}</td>
-                        <td>{{$vols->heure_depart}}</td>
-                        <td>{{$vols->heure_arivee}}</td>
-                        <td>{{$vols->nombre_place}}</td>
-                        <td>
+                        <td style="text-align: center;">{{$vols->id}}</td>
+                        <td style="text-align: center;">{{$vols->numero}}</td>
+                        <td style="text-align: center;">{{$vols->date_depart}}</td>
+                        <td style="text-align: center;">{{$vols->date_arivee}}</td>
+                        <td style="text-align: center;">{{$vols->heure_depart}}</td>
+                        <td style="text-align: center;">{{$vols->heure_arivee}}</td>
+                        <td style="text-align: center;">{{$vols->nombre_place}}</td>
+                        <td style="text-align: center;">
                             <a href="{{route('vols.edit', ['vols' => $vols])}}">Edit</a>
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {{-- <form method="post" action="{{route('vols.destroy'), ['vols' => $vols]}}"> --}}
                             <form method="post" action="{{route('vols.destroy', [$vols])}}">
                                 @csrf

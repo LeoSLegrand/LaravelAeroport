@@ -30,13 +30,13 @@
                 </tr>
                 @foreach($compagnies as $compagnies)
                     <tr>
-                        <td>{{$compagnies->id}}</td>
-                        <td>{{$compagnies->nom_compagnie}}</td>
-                        <td>{{$compagnies->pays}}</td>
-                        <td>
+                        <td style="text-align: center;">{{$compagnies->id}}</td>
+                        <td style="text-align: center;">{{$compagnies->nom_compagnie}}</td>
+                        <td style="text-align: center;">{{$compagnies->pays}}</td>
+                        <td style="text-align: center;">
                             <a href="{{route('compagnies.edit', ['compagnies' => $compagnies])}}">Edit</a>
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {{-- <form method="post" action="{{route('compagnies.destroy'), ['compagnies' => $compagnies]}}"> --}}
                             <form method="post" action="{{route('compagnies.destroy', [$compagnies])}}">
                                 @csrf

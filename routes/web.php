@@ -27,7 +27,6 @@ use App\Http\Controllers\CompagniesController;
 //Page Principal
 Route::get('/', [VolsController::class, 'show'])->name('aeroports.main');
 
-
 //Pages gestion aeroports
 Route::get('/aeroport/index', [AeroportsController::class, 'index'])->name('aeroports.index');
 Route::get('/aeroport/create', [AeroportsController::class, 'create'])->name('aeroports.create');

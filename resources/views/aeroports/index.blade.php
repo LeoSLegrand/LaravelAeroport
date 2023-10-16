@@ -32,15 +32,15 @@
                 </tr>
                 @foreach($aeroports as $aeroports)
                     <tr>
-                        <td>{{$aeroports->id}}</td>
-                        <td>{{$aeroports->nom_aeroport}}</td>
-                        <td>{{$aeroports->ville_aeroport}}</td>
-                        <td>{{$aeroports->code}}</td>
-                        <td>{{$aeroports->nombre_piste}}</td>
-                        <td>
+                        <td style="text-align: center;">{{$aeroports->id}}</td>
+                        <td style="text-align: center;">{{$aeroports->nom_aeroport}}</td>
+                        <td style="text-align: center;">{{$aeroports->ville_aeroport}}</td>
+                        <td style="text-align: center;">{{$aeroports->code}}</td>
+                        <td style="text-align: center;">{{$aeroports->nombre_piste}}</td>
+                        <td style="text-align: center;">
                             <a href="{{route('aeroports.edit', ['aeroports' => $aeroports])}}">Edit</a>
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {{-- <form method="post" action="{{route('aeroports.destroy'), ['aeroports' => $aeroports]}}"> --}}
                             <form method="post" action="{{route('aeroports.destroy', [$aeroports])}}">
                                 @csrf

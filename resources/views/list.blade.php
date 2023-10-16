@@ -21,15 +21,15 @@
             </tr>
             @foreach($vols as $vols)
             <tr>
-                <td>{{$vols['numero']}}</td>
-                <td>{{$vols['compagnies_id']}}</td>
-                <td>{{$vols['nombre_place']}}</td>
-                <td>{{$vols['date_depart']}}</td>
-                <td>{{$vols['date_arivee']}}</td>
-                <td>{{$vols['heure_depart']}}</td>
-                <td>{{$vols['heure_arivee']}}</td>
-                <td>{{$vols['aeroport_id_depart']}}</td>
-                <td>{{$vols['aeroport_id_arivee']}}</td>
+                <td style="text-align: center;">{{$vols['numero']}}</td>
+                <td style="text-align: center;">{{$vols['compagnies_id']}}</td>
+                <td style="text-align: center;">{{$vols['nombre_place']}}</td>
+                <td style="text-align: center;">{{$vols['date_depart']}}</td>
+                <td style="text-align: center;">{{$vols['date_arivee']}}</td>
+                <td style="text-align: center;">{{$vols['heure_depart']}}</td>
+                <td style="text-align: center;">{{$vols['heure_arivee']}}</td>
+                <td style="text-align: center;">{{$vols['aeroport_id_depart']}}</td>
+                <td style="text-align: center;">{{$vols['aeroport_id_arivee']}}</td>
             </tr>
             @endforeach
         </table>
@@ -38,35 +38,33 @@
         <h1>Tableau affichage nombre de vol par mois</h1>
         <table>
             <tr>
-                <td>Janvier &nbsp;&nbsp;</td>
-                <td>Fevrier &nbsp;&nbsp;</td>
-                <td>Mars &nbsp;&nbsp;</td>
-                <td>Avril &nbsp;&nbsp;</td>
-                <td>Mai &nbsp;&nbsp;</td>
-                <td>Juin &nbsp;&nbsp;</td>
-                <td>Juillet &nbsp;&nbsp;</td>
-                <td>Aout &nbsp;&nbsp;</td>
-                <td>Septembre &nbsp;&nbsp;</td>
-                <td>Octobre &nbsp;&nbsp;</td>
-                <td>Novembre &nbsp;&nbsp;</td>
-                <td>Decembre &nbsp;&nbsp;</td>
+                <th>Janvier &nbsp;&nbsp;</th>
+                <th>Fevrier &nbsp;&nbsp;</th>
+                <th>Mars &nbsp;&nbsp;</th>
+                <th>Avril &nbsp;&nbsp;</th>
+                <th>Mai &nbsp;&nbsp;</th>
+                <th>Juin &nbsp;&nbsp;</th>
+                <th>Juillet &nbsp;&nbsp;</th>
+                <th>Aout &nbsp;&nbsp;</th>
+                <th>Septembre &nbsp;&nbsp;</th>
+                <th>Octobre &nbsp;&nbsp;</th>
+                <th>Novembre &nbsp;&nbsp;</th>
+                <th>Decembre &nbsp;&nbsp;</td>
             </tr>
-            {{-- @foreach($vols as $vols)
             <tr>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
-                <td>{{$vols}}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(1) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(2) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(3) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(4) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(5) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(6) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(7) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(8) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(9) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(10) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(11) }}</td>
+                <td>{{ \App\Models\Vols::nbVolMois(12) }}</td>
             </tr>
-            @endforeach --}}
         </table>
 
         <br><br>

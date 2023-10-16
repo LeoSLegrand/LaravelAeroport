@@ -62,16 +62,12 @@ class VolsController extends Controller
 
         return view('list',['vols'=>$data]);
 
+        // $count = Vols::selectRaw('MONTH(date_depart) as month, COUNT(*) as flight_count')
+        // ->groupBy('month')
+        // ->orderBy('month')
+        // ->get();
 
-        // $results = Vols::select(
-        //     DB::raw("DATE_FORMAT(date_depart, '%m-%Y')"),
-        //     DB::raw("(COUNT(*)) as vol"),
-        //     DB::raw("sum(amount)")
-        // )->orderBy('date_depart')
-        //     ->groupBy(DB::raw("DATE_FORMAT(date_depart, '%m-%Y')"))
-        //     ->get();
-
-        // return view('list',['vols'=>$result]);
+        // return view('list', compact('count'));
     }
 
     /**
@@ -108,4 +104,5 @@ class VolsController extends Controller
         $vols->delete();
         return redirect(route('vols.index'))->with('success', 'Vol supprimé avec succès');
     }
+
 }

@@ -17,4 +17,8 @@ class Vols extends Model
         'heure_arivee',
         'nombre_place' 
     ];
+     public static function nbVolMois($mois) {
+        // return Vols::whereRaw('year(date_depart)='.date('Y').' and month(date_depart) = '.$mois)->count();    --> sert pour les vols de 2023
+        return Vols::whereRaw('month(date_depart) = '.$mois)->count();
+     }
 }
