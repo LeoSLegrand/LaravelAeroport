@@ -3,12 +3,12 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        
+   
         <div>
-            {{ __('Vous naviguez en') }} [{{ App::getLocale() }}] <!-- /*[{{ session('locale') }}]*/ --> {{Config::get('languages')[App::getLocale()]['flag-icon']}}
-            <a href="{{ route('language.change', ['code_iso' => 'fr']) }}">{{ __('French') }} </a>
+            {{ __('Vous naviguez en') }} [{{ App::getLocale() }}]
+            <a href="{{ route('language.change', ['code_iso' => 'fr']) }}">{{ __('French') }}</a>
             <a href="{{ route('language.change', ['code_iso' => 'en']) }}">{{ __('English') }}</a>
-          </div>
+        </div>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -23,7 +23,7 @@
 
     <body style="text-align: center">
         <br><br>
-        <h1 style="text-align: center">Liste des vols</h1>
+        <h1 style="text-align: center">{{ __('Liste des vols')}}</h1>
         <br>
         <table style="margin-left: auto; margin-right: auto">
             <tr>
@@ -53,7 +53,7 @@
         </table>
 
         <br><br><br><br>
-        <h1 style="text-align: center">Tableau affichage nombre de vol par mois</h1>
+        <h1 style="text-align: center">{{ __('Nombre de vols par mois')}}</h1>
         <br>
         <table style="margin-left: auto; margin-right: auto">
             <tr>
@@ -87,17 +87,21 @@
         </table>
 
         <br><br>
-        @auth
-        <a href="/aeroport/index">Lien vers la gestion des aeroports</a>
-        <div>&nbsp;&nbsp;</div>
-        @endauth
-      
-        @auth
-        <a href="/company/index">Lien vers la gestion des companies</a>
-        <div>&nbsp;&nbsp;</div>
-        <a href="/vol/index">Lien vers la gestion des vols</a>
-        @endauth
+        <div>
+            @auth
+            <a href="/aeroport/index">{{ __('Gestion des Aéroports') }}</a>
+            <div>&nbsp;&nbsp;</div>
+            @endauth
+        
+            @auth
+            <a href="/company/index">{{ __('Gestion des Compagnies') }}</a>
+            <div>&nbsp;&nbsp;</div>
+
+            <a href="/vol/index">{{ __('Gestion des Vols') }}</a>
+            @endauth
+        </div>
         <br><br>
+        
 
     </body>
 </html>

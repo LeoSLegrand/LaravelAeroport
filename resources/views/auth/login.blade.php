@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     
@@ -42,7 +42,7 @@
 
        
 
-            <a class="ml-4" href="{{ route('register') }}"> Register </a>
+            <a class="ml-4" href="{{ route('register') }}">{{ __('Register') }}</a>
 
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}

@@ -25,7 +25,8 @@ use App\Http\Controllers\LanguageController;
      return view('welcome');
  });
 
- Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+Route::get('language/{code_iso}', [LanguageController::class, 'change'])->name('language.change');
+
 
 //Pages authentification
 Route::get('/dashboard', function () {
@@ -66,8 +67,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-Route::get('language/{code_iso}', [LanguageController::class, 'change'])->name('language.change');
 
 Auth::routes();
 

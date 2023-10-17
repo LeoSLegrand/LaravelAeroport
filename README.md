@@ -1,4 +1,4 @@
-## Introduction
+## Installation
 
 Tous d'abord, dans le document '.env' on doit modifier ces lignes de code :<br><br>
 
