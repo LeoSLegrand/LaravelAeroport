@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <title>Index Vols</title>
     </head>
 
-    <body>
+    <body style="text-align: center">
         <h1>Vols</h1>
         <div>
             @if(session()->has('success'))
@@ -20,17 +22,17 @@
                 <a href="{{route('aeroports.main')}}">Retour à la page principal</a>
             </div>
             <br>
-            <table border="1">
+            <table border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
-                    <th>Id</th>
-                    <th>Numéro Vol</th>
-                    <th>Date Départ</th>
-                    <th>Date Arrivée</th>
-                    <th>Heure Départ</th>
-                    <th>Heure Arrivée</th>
-                    <th>Nombre Place</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Id &nbsp;&nbsp;</th>
+                    <th>Numéro Vol &nbsp;&nbsp;</th>
+                    <th>Date Départ &nbsp;&nbsp;</th>
+                    <th>Date Arrivée &nbsp;&nbsp;</th>
+                    <th>Heure Départ &nbsp;&nbsp;</th>
+                    <th>Heure Arrivée &nbsp;&nbsp;</th>
+                    <th>Nombre Place &nbsp;&nbsp;</th>
+                    <th>Edit &nbsp;&nbsp;</th>
+                    <th>Delete &nbsp;&nbsp;</th>
                 </tr>
                 @foreach($vols as $vols)
                     <tr>
@@ -55,6 +57,8 @@
                     </tr>
                 @endforeach
             </table>
+        <br><br>
+
         </div>
     </body>
 </html>

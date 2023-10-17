@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <title>Index Compagnie</title>
     </head>
 
-    <body>
+    <body style="text-align:center">
         <h1>Compagnies</h1>
         <div>
             @if(session()->has('success'))
@@ -20,13 +22,13 @@
                 <a href="{{route('aeroports.main')}}">Retour à la page principal</a>
             </div>
             <br>
-            <table border="1">
+            <table border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
-                    <th>Id</th>
-                    <th>Nom Compagnie</th>
-                    <th>Pays Compagnie</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Id &nbsp;&nbsp;</th>
+                    <th>Nom Compagnie &nbsp;&nbsp;</th>
+                    <th>Pays Compagnie &nbsp;&nbsp;</th>
+                    <th>Edit &nbsp;&nbsp;</th>
+                    <th>Delete &nbsp;&nbsp;</th>
                 </tr>
                 @foreach($compagnies as $compagnies)
                     <tr>
@@ -47,6 +49,8 @@
                     </tr>
                 @endforeach
             </table>
+        <br><br>
+
         </div>
     </body>
 </html>

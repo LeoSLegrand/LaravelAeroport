@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VolsController;
 use App\Http\Controllers\AeroportsController;
 use App\Http\Controllers\CompagniesController;
+use App\Http\Controllers\LanguageController;
+
 
 
 /*
@@ -64,6 +66,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('language/{code_iso}', [LanguageController::class, 'change'])->name('language.change');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
