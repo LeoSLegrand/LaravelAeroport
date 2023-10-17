@@ -9,7 +9,7 @@ DB_DATABASE=aeroport<br>
 DB_USERNAME=root<br>
 DB_PASSWORD=secret<br><br>
 
-Par la suite on peut lancer les Seeder pour emplir la base de donée avec les commandes suivantes :<br><br>
+Par la suite on peut lancer les Seeder pour remplir la base de donée avec les commandes suivantes :<br><br>
 
 > artisan db:seed --class VolsSeeder<br>
 > artisan db:seed --class CompagniesSeeder<br>

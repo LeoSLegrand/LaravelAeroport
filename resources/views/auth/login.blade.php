@@ -40,6 +40,8 @@
                 </a>
             @endif
 
+       
+
             <a class="ml-4" href="{{ route('register') }}"> Register </a>
 
             <x-primary-button class="ml-3">
@@ -48,5 +50,6 @@
 
      
         </div>
+        
     </form>
 </x-guest-layout>

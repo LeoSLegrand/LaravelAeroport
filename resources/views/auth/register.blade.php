@@ -39,6 +39,20 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <br>
+        <form>
+            <fieldset>
+                <x-input-label>Sélectionner votre type de compte :</x-input-label>
+                <div>
+                  <input type="radio" id="accountChoice1" name="roleCompagnie" value="roleCompagnie" />
+                  <x-input-label for="accountChoice1">Compagnie</x-input-label>
+            
+                  <input type="radio" id="accountChoice2" name="admin" value="roleCompagnie" />
+                  <x-input-label for="accountChoice2">Admin</x-input-label>
+                </div>
+            </fieldset>
+        </form>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
