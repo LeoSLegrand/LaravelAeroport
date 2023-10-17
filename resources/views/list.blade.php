@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Config::get('languages')[App::getLocale()] }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            @foreach (Config::get('languages') as $lang => $language)
+                @if ($lang != App::getLocale())
+                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                @endif
+            @endforeach
+            </div>
+        </li>
 
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+    
+            <x-dropdown-link :href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();" style="float: right; padding-right: 20px;">
+                {{ __('Log Out') }}
+            </x-dropdown-link>
+        </form>
     </head>
 
     <body>
@@ -68,10 +89,15 @@
         </table>
 
         <br><br>
+        @auth
         <a href="/aeroport/index">Lien vers la gestion des aeroports</a>
         <div>&nbsp;&nbsp;</div>
+        @endauth
+      
+        @auth
         <a href="/company/index">Lien vers la gestion des companies</a>
         <div>&nbsp;&nbsp;</div>
         <a href="/vol/index">Lien vers la gestion des vols</a>
+        @endauth
     </body>
 </html>

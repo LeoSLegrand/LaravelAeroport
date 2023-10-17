@@ -15,6 +15,8 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+
+    public $redirectTo = '/';
     /**
      * Display the registration view.
      */
