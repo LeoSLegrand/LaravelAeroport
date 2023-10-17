@@ -27,15 +27,15 @@
         <br>
         <table style="margin-left: auto; margin-right: auto">
             <tr>
-                <td>Numéro Vol &nbsp;&nbsp;</td>
-                <td>Compagnie &nbsp;&nbsp;</td>
-                <td>Nombre place &nbsp;&nbsp;</td>
-                <td>Date départ &nbsp;&nbsp;</td>
-                <td>Date arivée &nbsp;&nbsp;</td>
-                <td>Heure départ &nbsp;&nbsp;</td>
-                <td>Heure arivée &nbsp;&nbsp;</td>
-                <td>Aeroport départ &nbsp;&nbsp;</td>
-                <td>Aeroport arivée</td>
+                <td>{{ __('Numéro Vol')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Compagnie')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Nombre place')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Date départ')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Date arivée')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Heure départ')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Heure arrivée')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Aeroport départ')}} &nbsp;&nbsp;</td>
+                <td>{{ __('Aeroport arivée')}}</td>
             </tr>
             @foreach($vols as $vols)
             <tr>
@@ -57,18 +57,18 @@
         <br>
         <table style="margin-left: auto; margin-right: auto">
             <tr>
-                <th>Janvier &nbsp;&nbsp;</th>
-                <th>Fevrier &nbsp;&nbsp;</th>
-                <th>Mars &nbsp;&nbsp;</th>
-                <th>Avril &nbsp;&nbsp;</th>
-                <th>Mai &nbsp;&nbsp;</th>
-                <th>Juin &nbsp;&nbsp;</th>
-                <th>Juillet &nbsp;&nbsp;</th>
-                <th>Aout &nbsp;&nbsp;</th>
-                <th>Septembre &nbsp;&nbsp;</th>
-                <th>Octobre &nbsp;&nbsp;</th>
-                <th>Novembre &nbsp;&nbsp;</th>
-                <th>Decembre &nbsp;&nbsp;</td>
+                <th>{{ __('Janvier')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Fevrier')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Mars')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Avril')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Mai')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Juin')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Juillet')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Aout')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Septembre')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Octobre')}}Octbre &nbsp;&nbsp;</th>
+                <th>{{ __('Novembre')}} &nbsp;&nbsp;</th>
+                <th>{{ __('Decembre')}} &nbsp;&nbsp;</td>
             </tr>
             <tr>
                 <td>{{ \App\Models\Vols::nbVolMois(1) }}</td>
