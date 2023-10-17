@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Config::get('languages')[App::getLocale()] }}
             </a>
@@ -12,7 +12,7 @@
                 @endif
             @endforeach
             </div>
-        </li>
+        </li> --}}
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
