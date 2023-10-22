@@ -40,18 +40,6 @@
         </div>
 
         <br>
-       
-        <fieldset>
-            <x-input-label>Sélectionner votre type de compte :</x-input-label>
-            <div>
-                <input type="radio" id="accountChoice1" name="roleCompagnie" value="roleCompagnie" />
-                <x-input-label for="roles">Compagnie</x-input-label>
-        
-                <input type="radio" id="accountChoice2" name="admin" value="admin" />
-                <x-input-label for="roles">Admin</x-input-label>
-            </div>
-        </fieldset>
-       
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">

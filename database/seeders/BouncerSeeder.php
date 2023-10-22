@@ -16,18 +16,19 @@ class BouncerSeeder extends Seeder
     public function run(): void
     {
         Bouncer::allow('admin')->to('access-aeroport');
-        Bouncer::allow('admin')->to('create-aeroport');
-        Bouncer::allow('admin')->to('edit-aeroport');
-        Bouncer::allow('admin')->to('delete-aeroport');
+        // Bouncer::allow('admin')->to('create-aeroport');
+        // Bouncer::allow('admin')->to('edit-aeroport');
+        // Bouncer::allow('admin')->to('delete-aeroport');
 
         Bouncer::allow('roleCompagnie')->to('access-compagnie');
-        Bouncer::allow('roleCompagnie')->to('create-compagnie');
-        Bouncer::allow('roleCompagnie')->to('edit-compagnie');
-        Bouncer::allow('roleCompagnie')->to('delete-compagnie');
+        // Bouncer::allow('roleCompagnie')->to('create-compagnie');
+        // Bouncer::allow('roleCompagnie')->to('edit-compagnie');
+        // Bouncer::allow('roleCompagnie')->to('delete-compagnie');
 
         Bouncer::allow('roleCompagnie')->to('access-vols');
-        Bouncer::allow('roleCompagnie')->to('create-vols');
-        Bouncer::allow('roleCompagnie')->to('edit-vols');
-        Bouncer::allow('roleCompagnie')->to('delete-vols');
+        // Bouncer::allow('roleCompagnie')->to('create-vols');
+        // Bouncer::allow('roleCompagnie')->to('edit-vols');
+        // Bouncer::allow('roleCompagnie')->to('delete-vols');
+        
     }
 }

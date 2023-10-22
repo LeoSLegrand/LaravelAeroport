@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Aeroports;
 use Illuminate\Http\Request;
+use Silber\Bouncer\Bouncer;
+use Illuminate\Support\Facades\Gate;
 
 class AeroportsController extends Controller
 {
@@ -12,8 +14,17 @@ class AeroportsController extends Controller
      */
     public function index()
     {
+
+
         $aeroports = Aeroports::all();
-        return view('aeroports.index', ['aeroports' => $aeroports]);
+        if (Gate::allows('access-airports')) {
+            $aeroports = Aeroports::all();
+            return view('aeroports.index', ['aeroports' => $aeroports]);
+
+        } else {
+            abort(403, 'Accès refusé car vôtre compte n a pas le rôle Admin');
+            
+        }
     }
 
     /**

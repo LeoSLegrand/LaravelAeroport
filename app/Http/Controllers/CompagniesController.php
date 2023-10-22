@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Compagnies;
 use Illuminate\Http\Request;
+use Silber\Bouncer\Bouncer;
+use Illuminate\Support\Facades\Gate;
 
 class CompagniesController extends Controller
 {
@@ -12,8 +14,18 @@ class CompagniesController extends Controller
      */
     public function index()
     {
-        $compagnies = Compagnies::all();
-        return view('compagnies.index', ['compagnies' => $compagnies]);
+        
+
+        $vols = Compagnies::all();
+        if (Gate::allows('access-compagnie')) {
+            $compagnies = Compagnies::all();
+            return view('compagnies.index', ['compagnies' => $compagnies]);
+
+        } else {
+            abort(403, 'Accès refusé car vôtre compte n a pas le rôle Compagnie');
+
+        }
+
     }
 
     /**

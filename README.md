@@ -14,3 +14,16 @@ Par la suite on peut lancer les Seeder pour remplir la base de donée avec les c
 > artisan db:seed --class VolsSeeder<br>
 > artisan db:seed --class CompagniesSeeder<br>
 > artisan db:seed --class AeroportsSeeder<br>
+
+Pour avoir le css de bootsrap on doit se rendre dans le dossier avec le fichier 'package.json' puis :
+
+entrer la commande 'npm run dev'<br><br>
+
+si la commande échoue, on doit installer npm avec la commande 'npm npm install'<br><br>
+
+Pour créé un compte Admin on doit modifié la ligne suivante dans le fichier User.php :<br><br>
+
+    $bouncer->assign('roleCompagnie')->to($user); devient $bouncer->assign('admin')->to($user);
+
+
+
