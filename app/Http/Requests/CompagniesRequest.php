@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class CompagniesRequest extends FormRequest
+class CompagniesRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,6 +14,18 @@ class CompagniesRequest extends FormRequest
     {
         return true;
     }
+
+
+    public function rules()
+    {
+        $rules[[
+            'nom_compagnie' =>'required|alpha_dash:ascii',
+            'pays' =>'required|alpha_dash:ascii'
+        ]];
+        
+        return $rules;
+    }
+    
 
     /**
      * Get the validation rules that apply to the request.

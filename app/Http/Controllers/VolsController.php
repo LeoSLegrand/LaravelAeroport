@@ -6,10 +6,22 @@ use App\Models\Vols;
 use Illuminate\Http\Request;
 use Silber\Bouncer\Bouncer;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\VolsRequest;
+use App\Models\Compagnies;
+use App\Models\Aeroports;
+//use app\Repositories\VolsRepository;
 
 
 class VolsController extends Controller
 {
+
+    // protected $volsRepository;
+
+    // public function __construct(VolsRepository $volsRepository)
+    // {
+    //     $this->volsRepository = $volsRepository;
+    // }
+
     /**
      * Display a listing of the resource.
      */
@@ -44,19 +56,22 @@ class VolsController extends Controller
     public function store(Request $request)
     {
    
-        $vols = Vols::all();
+         // Obtenir une compagnie aléatoire
+        $compagnieAleatoire = Compagnies::inRandomOrder()->first();
+        $AeroportDepartAleatoire = Aeroports::inRandomOrder()->first();
+        $AeroportAriveAleatoire = Aeroports::inRandomOrder()->first();
 
-            $data = $request->validate([
-                'numero' =>'required|integer',
-                'date_depart' =>'required|date|',
-                'date_arivee' =>'required|date|after:date_depart',
-                'heure_depart' =>'required|date_format:H:i:s',
-                'heure_arivee' =>'required|date_format:H:i:s|after:heure_depart',
-                'nombre_place' =>'required|integer'
-            ]);
-    
-            $newVol = Vols::create($data);
-            return redirect(route('vols.index'));
+        $data = $request->all();
+
+        // Attribuer l'ID de la compagnie aléatoire
+        $data['compagnies_id'] = $compagnieAleatoire->id;
+        $data['aeroport_id_depart'] = $AeroportDepartAleatoire->id;
+        $data['aeroport_id_arivee'] = $AeroportAriveAleatoire->id;
+
+        $newVol = Vols::create($data);
+        //$newVol = $this->volsRepository->create($data);
+
+        return redirect(route('vols.index'));
     
         
     }
@@ -82,9 +97,7 @@ class VolsController extends Controller
     public function edit(Vols $vols)
     {
 
-        $vols = Vols::all();
-            return view('vols.edit', ['vols' => $vols]);
-    
+        return view('vols.edit', ['vols' => $vols]);
     }
 
     /**
@@ -92,16 +105,12 @@ class VolsController extends Controller
      */
     public function update(Request $request, Vols $vols)
     {
-        $data = $request->validate([
-            'numero' =>'required|integer',
-            'date_depart' =>'required|date|',
-            'date_arivee' =>'required|date|after:date_depart',
-            'heure_depart' =>'required|date_format:H:i:s',
-            'heure_arivee' =>'required|date_format:H:i:s|after:heure_depart',
-            'nombre_place' =>'required|integer'
-        ]);
+
+        $data = $request->all();
 
         $vols->update($data);
+        //$this->volsRepository->update($vols, $data);
+
         return redirect(route('vols.index'))->with('success', 'Vol édité avec succès');
         
     }
@@ -111,10 +120,10 @@ class VolsController extends Controller
      */
     public function destroy(Vols $vols)
     {
-      
-        $vols = Vols::all();
-            $vols->delete();
-            return redirect(route('vols.index'))->with('success', 'Vol supprimé avec succès');
+        $vols->delete();
+        //$this->volsRepository->delete($vols);
+
+        return redirect(route('vols.index'))->with('success', 'Vol supprimé avec succès');
 
     }
 

@@ -6,9 +6,20 @@ use App\Models\Compagnies;
 use Illuminate\Http\Request;
 use Silber\Bouncer\Bouncer;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\CompagniesRequest;
+//use app\Repositories\CompagnieRepository;
+
 
 class CompagniesController extends Controller
 {
+
+    // protected $compagnieRepository;
+
+    // public function __construct(CompagnieRepository $compagnieRepository)
+    // {
+    //     $this->compagnieRepository = $compagnieRepository;
+    // }
+
     /**
      * Display a listing of the resource.
      */
@@ -41,12 +52,12 @@ class CompagniesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'nom_compagnie' =>'required|alpha_dash:ascii',
-            'pays' =>'required|alpha_dash:ascii'
-        ]);
+
+        $data = $request->all();
 
         $newCompany = Compagnies::create($data);
+        //$newCompany = $this->compagnieRepository->create($data);
+
         return redirect(route('compagnies.index'));
     }
 
@@ -71,12 +82,12 @@ class CompagniesController extends Controller
      */
     public function update(Request $request, Compagnies $compagnies)
     {
-        $data = $request->validate([
-            'nom_compagnie' =>'required|alpha_dash:ascii',
-            'pays' =>'required|alpha_dash:ascii'
-        ]);
+
+        $data = $request->all();
 
         $compagnies->update($data);
+        //$this->compagnieRepository->update($compagnies, $data);
+
         return redirect(route('compagnies.index'))->with('success', 'Compagnie édité avec succès');
     }
 
@@ -86,6 +97,8 @@ class CompagniesController extends Controller
     public function destroy(Compagnies $compagnies)
     {
         $compagnies->delete();
+        //$this->compagnieRepository->delete($compagnies);
+
         return redirect(route('compagnies.index'))->with('success', 'Compagnie supprimé avec succès');
     }
 }

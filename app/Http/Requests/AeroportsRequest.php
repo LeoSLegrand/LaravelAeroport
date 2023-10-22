@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class AeroportsRequest extends FormRequest
+class AeroportsRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -12,6 +13,18 @@ class AeroportsRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function rules()
+    {
+        $rules[[
+            'nom_aeroport' =>'required',
+            'ville_aeroport' =>'required',
+            'code' =>'required|integer',
+            'nombre_piste' =>'required|integer'
+        ]];
+        
+        return $rules;
     }
 
     /**

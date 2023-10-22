@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class VolsRequest extends FormRequest
+class VolsRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -12,6 +13,20 @@ class VolsRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function rules()
+    {
+        $rules[[
+            'numero' =>'required|integer',
+            'date_depart' =>'required|date|',
+            'date_arivee' =>'required|date|after:date_depart',
+            'heure_depart' =>'required|date_format:H:i:s',
+            'heure_arivee' =>'required|date_format:H:i:s|after:heure_depart',
+            'nombre_place' =>'required|integer'
+        ]];
+        
+        return $rules;
     }
 
     /**
