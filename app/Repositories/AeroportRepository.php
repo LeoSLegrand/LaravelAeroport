@@ -4,40 +4,32 @@ namespace App\Repositories;
 
 use App\Models\Aeroports;
 
-interface AeroportRepositoryInterface
-{
-    public function all();
-    public function find($id);
-    public function create(array $data);
-    public function update($id, array $data);
-    public function delete($id);
-}
+class AeroportRepository {
 
-class AeroportRepository implements AeroportRepositoryInterface
-{
-    public function all()
-    {
-        return Aeroports::all();
+    protected $aeroports;
+
+    public function __construct(Aeroports $aeroports){
+        $this->aeroports = $aeroports;
     }
 
-    public function find($id)
-    {
-        return Aeroports::find($id);
+    private function save(Aeroports $aeroports, array $inputs) {
+        $aeroports->nom_aeroport = $inputs['nom_aeroport'];
+        $aeroports->ville_aeroport = $inputs['ville_aeroport'];
+        $aeroports->code = $inputs['code'];
+        $aeroports->nombre_piste = $inputs['nombre_piste'];
+        
+        $aeroports->save();
     }
 
-    public function create(array $data)
-    {
-        return Aeroports::create($data);
+    public function store(array $inputs) {
+        //$aeroports = new $aeroports->aeroports;
+        $aeroports = $this->aeroports->newInstance(); // Crée une nouvelle instance de la classe Aeroports.
+        $this->save($aeroports, $inputs);
+        return $aeroports;
     }
 
-    public function update(Aeroports $aeroport, array $data)
-    {
-        $aeroport->update($data);
+    public function update(Aeroports $aeroports, array $inputs){
+        $this->save($aeroports, $inputs);
+        return $aeroports;
     }
-
-    public function delete(Aeroports $aeroport)
-    {
-        $aeroport->delete();
-    }
-
 }

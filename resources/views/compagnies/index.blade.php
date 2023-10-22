@@ -7,7 +7,8 @@
     </head>
 
     <body style="text-align:center">
-        <h1>Compagnies</h1>
+        <h1><strong>Compagnies</strong></h1>
+        <br>
         <div>
             @if(session()->has('success'))
                 <div>
@@ -17,12 +18,12 @@
         </div>
         <div>
             <div>
-                <a href="{{route('compagnies.create')}}">Ajouter une compagnie</a>
+                <a href="{{route('compagnies.create')}}" class="btn btn-primary">Ajouter une compagnie</a>
                 <div>&nbsp;&nbsp;</div>
-                <a href="{{route('aeroports.main')}}">Retour à la page principal</a>
+                <a href="{{route('aeroports.main')}}" class="btn btn-secondary">Retour à la page principal</a>
             </div>
             <br>
-            <table border="1" style="margin-left: auto; margin-right: auto">
+            <table class="table table-striped" border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
                     <th>Id &nbsp;&nbsp;</th>
                     <th>Nom Compagnie &nbsp;&nbsp;</th>
@@ -36,9 +37,9 @@
                         <td style="text-align: center;">{{$compagnies->nom_compagnie}}</td>
                         <td style="text-align: center;">{{$compagnies->pays}}</td>
                         <td style="text-align: center;">
-                            <a href="{{route('compagnies.edit', ['compagnies' => $compagnies])}}">Edit</a>
+                            <a href="{{route('compagnies.edit', ['compagnies' => $compagnies])}}" class="btn btn-primary">Edit</a>
                         </td>
-                        <td style="text-align: center;">
+                        <td style="text-align: center;" >
                             {{-- <form method="post" action="{{route('compagnies.destroy'), ['compagnies' => $compagnies]}}"> --}}
                             <form method="post" action="{{route('compagnies.destroy', [$compagnies])}}">
                                 @csrf

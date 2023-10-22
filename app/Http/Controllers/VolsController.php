@@ -9,17 +9,16 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\VolsRequest;
 use App\Models\Compagnies;
 use App\Models\Aeroports;
-//use app\Repositories\VolsRepository;
+use App\Repositories\VolsRepository;
 
 
 class VolsController extends Controller
 {
 
-    // protected $volsRepository;
+    // private $repository;
 
-    // public function __construct(VolsRepository $volsRepository)
-    // {
-    //     $this->volsRepository = $volsRepository;
+    // public function __construct(VolsRepository $repository){
+    //     $this->repository = $repository;
     // }
 
     /**
@@ -56,7 +55,7 @@ class VolsController extends Controller
     public function store(Request $request)
     {
    
-         // Obtenir une compagnie aléatoire
+        // Obtenir une compagnie aléatoire
         $compagnieAleatoire = Compagnies::inRandomOrder()->first();
         $AeroportDepartAleatoire = Aeroports::inRandomOrder()->first();
         $AeroportAriveAleatoire = Aeroports::inRandomOrder()->first();
@@ -69,11 +68,10 @@ class VolsController extends Controller
         $data['aeroport_id_arivee'] = $AeroportAriveAleatoire->id;
 
         $newVol = Vols::create($data);
-        //$newVol = $this->volsRepository->create($data);
+        //$vols = $this->repository->store($request->all());
 
         return redirect(route('vols.index'));
     
-        
     }
 
     /**
@@ -109,7 +107,7 @@ class VolsController extends Controller
         $data = $request->all();
 
         $vols->update($data);
-        //$this->volsRepository->update($vols, $data);
+        //$this->repository->update($vols, $request->all());
 
         return redirect(route('vols.index'))->with('success', 'Vol édité avec succès');
         
@@ -121,8 +119,6 @@ class VolsController extends Controller
     public function destroy(Vols $vols)
     {
         $vols->delete();
-        //$this->volsRepository->delete($vols);
-
         return redirect(route('vols.index'))->with('success', 'Vol supprimé avec succès');
 
     }

@@ -7,17 +7,16 @@ use Illuminate\Http\Request;
 use Silber\Bouncer\Bouncer;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\AeroportsRequest;
-//use app\Repositories\AeroportRepository;
+use App\Repositories\AeroportRepository;
 
 class AeroportsController extends Controller
 {
 
-    // protected $aeroportRepository;
+    private $repository;
 
-    // public function __construct(AeroportRepository $aeroportRepository)
-    // {
-    //     $this->aeroportRepository = $aeroportRepository;
-    // }
+    public function __construct(AeroportRepository $repository){
+        $this->repository = $repository;
+    }
 
     /**
      * Display a listing of the resource.
@@ -53,8 +52,8 @@ class AeroportsController extends Controller
 
         $data = $request->all();
 
-        $newAeroport = Aeroports::create($data);
-        //$newAeroport = $this->aeroportRepository->create($data);
+        //$newAeroport = Aeroports::create($data);
+        $aeroports = $this->repository->store($request->all());
         return redirect(route('aeroports.index'));
     }
 
@@ -82,8 +81,8 @@ class AeroportsController extends Controller
 
         $data = $request->all();
 
-        $aeroports->update($data);
-        //$this->aeroportRepository->update($aeroports, $data);
+        //$aeroports->update($data);
+        $this->repository->update($aeroports, $request->all());
 
         return redirect(route('aeroports.index'))->with('success', 'Aeroport édité avec succès');
     }
@@ -94,7 +93,6 @@ class AeroportsController extends Controller
     public function destroy(Aeroports $aeroports)
     {
         $aeroports->delete();
-        //$this->aeroportRepository->delete($aeroports);
 
         return redirect(route('aeroports.index'))->with('success', 'Aeroport supprimé avec succès');
     }

@@ -4,40 +4,30 @@ namespace App\Repositories;
 
 use App\Models\Compagnies;
 
-interface CompagnieRepositoryInterface
-{
-    public function all();
-    public function find($id);
-    public function create(array $data);
-    public function update($id, array $data);
-    public function delete($id);
-}
 
-class CompagnieRepository implements CompagnieRepositoryInterface
-{
-    public function all()
-    {
-        return Compagnie::all();
+class CompagnieRepository {
+
+    protected $compagnies;
+
+    public function __construct(Compagnies $compagnies){
+        $this->compagnies = $compagnies;
     }
 
-    public function find($id)
-    {
-        return Compagnies::find($id);
+    private function save(Compagnies $compagnies, array $inputs) {
+        $compagnies->nom_compagnie = $inputs['nom_compagnie'];
+        $compagnies->pays = $inputs['pays'];
+        $compagnies->save();
     }
 
-    public function create(array $data)
-    {
-        return Compagnies::create($data);
+    public function store(array $inputs) {
+        //$compagnies = new $compagnies->compagnies;
+        $compagnies = $this->compagnies->newInstance(); // Crée une nouvelle instance de la classe Compagnies.
+        $this->save($compagnies, $inputs);
+        return $compagnies;
     }
 
-    public function update(Compagnies $compagnies, array $data)
-    {
-        $compagnies->update($data);
+    public function update(Compagnies $compagnies, array $inputs){
+        $this->save($compagnies, $inputs);
+        return $compagnies;
     }
-
-    public function delete(Compagnies $compagnies)
-    {
-        $compagnies->delete();
-    }
-
 }

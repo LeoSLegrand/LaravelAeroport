@@ -7,7 +7,7 @@
     </head>
 
     <body style="text-align: center">
-        <h1>Aeroports</h1>
+        <h1><strong>Aeroports</strong></h1>
         <div>
             @if(session()->has('success'))
                 <div>
@@ -17,12 +17,12 @@
         </div>
         <div>
             <div>
-                <a href="{{route('aeroports.create')}}">Ajouter un aeroport</a>
+                <a href="{{route('aeroports.create')}}" class="btn btn-primary">Ajouter un aeroport</a>
                 <div>&nbsp;&nbsp;</div>
-                <a href="{{route('aeroports.main')}}">Retour à la page principal</a>
+                <a href="{{route('aeroports.main')}}" class="btn btn-secondary">Retour à la page principal</a>
             </div>
             <br>
-            <table border="1" style="margin-left: auto; margin-right: auto">
+            <table class="table table-striped" border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
                     <th>Id &nbsp;&nbsp;</th>
                     <th>Nom Aeroport &nbsp;&nbsp;</th>
@@ -40,7 +40,7 @@
                         <td style="text-align: center;">{{$aeroports->code}}</td>
                         <td style="text-align: center;">{{$aeroports->nombre_piste}}</td>
                         <td style="text-align: center;">
-                            <a href="{{route('aeroports.edit', ['aeroports' => $aeroports])}}">Edit</a>
+                            <a href="{{route('aeroports.edit', ['aeroports' => $aeroports])}}" class="btn btn-primary">Edit</a>
                         </td>
                         <td style="text-align: center;">
                             {{-- <form method="post" action="{{route('aeroports.destroy'), ['aeroports' => $aeroports]}}"> --}}

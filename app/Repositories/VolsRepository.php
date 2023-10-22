@@ -3,41 +3,36 @@
 namespace App\Repositories;
 
 use App\Models\Vols;
+use App\Models\Aeroports;
+use App\Models\Compagnies;
 
-interface VolsRepositoryInterface
-{
-    public function all();
-    public function find($id);
-    public function create(array $data);
-    public function update($id, array $data);
-    public function delete($id);
-}
+class VolsRepository {
 
-class VolsRepository implements VolsRepositoryInterface
-{
-    public function all()
-    {
-        return Vols::all();
+    protected $vols;
+
+    public function __construct(Vols $vols){
+        $this->vols = $vols;
     }
 
-    public function find($id)
-    {
-        return Vols::find($id);
+    private function save(Vols $vols, array $inputs) {
+        $vols->numero = $inputs['numero'];
+        $vols->date_depart = $inputs['date_depart'];
+        $vols->date_arivee = $inputs['date_arivee'];
+        $vols->heure_arivee = $inputs['heure_arivee'];
+        $vols->heure_depart = $inputs['heure_depart'];
+        $vols->nombre_place = $inputs['nombre_place'];
+        $vols->save();
     }
 
-    public function create(array $data)
-    {
-        return Vols::create($data);
+    public function store(array $inputs) {
+        //$vols = new $vols->vols;
+        $vols = $this->vols->newInstance(); // Crée une nouvelle instance de la classe Vols.
+        $this->save($vols, $inputs);
+        return $vols;
     }
 
-    public function update(Vols $vols, array $data)
-    {
-        $vols->update($data);
+    public function update(Vols $vols, array $inputs){
+        $this->save($vols, $inputs);
+        return $vols;
     }
-
-    public function delete(Vols $vols)
-    {
-        $vols->delete();
-    }
-
 }
