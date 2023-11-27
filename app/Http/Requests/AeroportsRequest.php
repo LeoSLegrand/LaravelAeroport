@@ -20,8 +20,8 @@ class AeroportsRequest extends Request
         $rules[[
             'nom_aeroport' =>'required',
             'ville_aeroport' =>'required',
-            'code' =>'required|integer',
-            'nombre_piste' =>'required|integer'
+            'code' =>'required|integer|without_spaces',
+            'nombre_piste' =>'required|integer|without_spaces'
         ]];
         
         return $rules;

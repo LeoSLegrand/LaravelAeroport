@@ -18,12 +18,12 @@ class VolsRequest extends Request
     public function rules()
     {
         $rules[[
-            'numero' =>'required|integer',
+            'numero' =>'required|integer|without_spaces',
             'date_depart' =>'required|date|',
             'date_arivee' =>'required|date|after:date_depart',
             'heure_depart' =>'required|date_format:H:i:s',
             'heure_arivee' =>'required|date_format:H:i:s|after:heure_depart',
-            'nombre_place' =>'required|integer'
+            'nombre_place' =>'required|integer|without_spaces'
         ]];
         
         return $rules;
