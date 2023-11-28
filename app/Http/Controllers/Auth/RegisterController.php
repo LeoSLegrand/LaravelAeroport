@@ -75,7 +75,8 @@ class RegisterController extends Controller
         ]);
 
         // Send the email after creating the user
-        Mail::to($user->email)->send(new InfoMail());
+        //Mail::to($user->email)->send(new InfoMail());
+        Mail::to($user->email)->send(new InfoMail($user));
 
         return $user;
     

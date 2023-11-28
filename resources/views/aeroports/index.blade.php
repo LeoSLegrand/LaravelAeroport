@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <title>Index Aeroport</title>
+        <title>{{ __('Index des Aeroports') }}</title>
     </head>
 
     <body style="text-align: center">
-        <h1><strong>Aeroports</strong></h1>
+        <h1><strong>{{ __('Aeroports') }}</strong></h1>
         <div>
             @if(session()->has('success'))
                 <div>
@@ -17,20 +17,20 @@
         </div>
         <div>
             <div>
-                <a href="{{route('aeroports.create')}}" class="btn btn-primary">Ajouter un aeroport</a>
+                <a href="{{route('aeroports.create')}}" class="btn btn-primary">{{ __('Ajouter un aeroport') }}</a>
                 <div>&nbsp;&nbsp;</div>
-                <a href="{{route('aeroports.main')}}" class="btn btn-secondary">Retour à la page principal</a>
+                <a href="{{route('aeroports.main')}}" class="btn btn-secondary">{{ __('Retour à la page principal') }}</a>
             </div>
             <br>
             <table class="table table-striped" border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
                     <th>Id &nbsp;&nbsp;</th>
-                    <th>Nom Aeroport &nbsp;&nbsp;</th>
-                    <th>Ville &nbsp;&nbsp;</th>
-                    <th>Ville &nbsp;&nbsp;</th>
-                    <th>Nombre de Piste &nbsp;&nbsp;</th>
-                    <th>Edit &nbsp;&nbsp;</th>
-                    <th>Delete &nbsp;&nbsp;</th>
+                    <th>{{ __('Nom des Aeroports') }} &nbsp;&nbsp;</th>
+                    <th>{{ __('Ville') }} &nbsp;&nbsp;</th>
+                    <th>{{ __('Code Aeroports') }} &nbsp;&nbsp;</th>
+                    <th>{{ __('Nombre de Pistes') }} &nbsp;&nbsp;</th>
+                    <th>{{ __('Editer') }} &nbsp;&nbsp;</th>
+                    <th>{{ __('Supprimer') }} &nbsp;&nbsp;</th>
                 </tr>
                 @foreach($aeroports as $aeroports)
                     <tr>
@@ -40,7 +40,7 @@
                         <td style="text-align: center;">{{$aeroports->code}}</td>
                         <td style="text-align: center;">{{$aeroports->nombre_piste}}</td>
                         <td style="text-align: center;">
-                            <a href="{{route('aeroports.edit', ['aeroports' => $aeroports])}}" class="btn btn-primary">Edit</a>
+                            <a href="{{route('aeroports.edit', ['aeroports' => $aeroports])}}" class="btn btn-primary">{{ __('Editer') }}</a>
                         </td>
                         <td style="text-align: center;">
                             {{-- <form method="post" action="{{route('aeroports.destroy'), ['aeroports' => $aeroports]}}"> --}}

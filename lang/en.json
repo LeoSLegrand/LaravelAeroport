@@ -96,7 +96,29 @@
     "Heure départ": "Departure Time",
     "Heure arrivée": "Arrival Time",
     "Aeroport départ": "Departure Airport",
-    "Aeroport arivée": "Arrival Airport"
-
-    
+    "Aeroport arivée": "Arrival Airport",
+    "Ajouter une compagnie": "Add a company",
+    "Retour à la page principal": "Back to the main page",
+    "Nom Compagnie": "",
+    "Pays Compagnie": "",
+    "Editer": "Edit",
+    "Supprimer": "Delete",
+    "Compagnies": "Companies",
+    "Index des Compagnies": "Companies Index",
+    "Index des Vols": "Flights Index",
+    "Vols": "Flights",
+    "Ajouter un vol": "Add a Flight",
+    "Numéro Vol": "Flight Number",
+    "Date Départ": "Departure Date",
+    "Date Arrivée": "Arrival Date",
+    "Heure Départ": "Hour of Departure",
+    "Heure Arrivée": "Hour of Arrival",
+    "Nombre Places": "Number of Places",
+    "Nom des Aeroports": "Airports name",
+    "Ville": "City",
+    "Code Aeroports": "Airports Code",
+    "Nombre de Pistes": "Number of Runways",
+    "Index des Aeroports": "Airports Index",
+    "Ajouter un aeroport": "Add an Airport",
+    "Aeroports": "Airports"
 }
