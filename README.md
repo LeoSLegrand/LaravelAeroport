@@ -15,6 +15,12 @@ Par la suite on peut lancer les Seeder pour remplire la base de donée avec les 
 > artisan db:seed --class CompagniesSeeder<br>
 > artisan db:seed --class AeroportsSeeder<br><br>
 
+On doit créé les autorisation avec Bouncer pour cela on utilise la commande "artisan tinker" puis :<br><br>
+
+> Bouncer::allow('admin')->to('access-aeroport');<br>
+> Bouncer::allow('roleCompagnie')->to('access-compagnie');<br>
+> Bouncer::allow('roleCompagnie')->to('access-vols');<br><br>
+
 Aller dans le dossier avec le fichier 'package.json' puis entrer la commande : <br><br>
 
 > npm run dev<br><br>
