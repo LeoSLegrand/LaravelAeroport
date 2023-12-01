@@ -8,20 +8,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User;
+use App\Models\Aeroports;
 
-class InfoMail extends Mailable
+class AeroportEditMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public $aeroports;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user)
+    public function __construct(Aeroports $aeroports)
     {
-        $this->user = $user;
+        $this->aeroports = $aeroports;
     }
 
     /**
@@ -30,7 +30,7 @@ class InfoMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Création Compte',
+            subject: 'Donnée modifié dans la BDD "Aeroport"',
         );
     }
 
@@ -40,7 +40,7 @@ class InfoMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.accountMail',
+            view: 'mail.aeroport.airportEdit',
         );
 
         //return $this->view('emails.welcome');

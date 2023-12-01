@@ -11,6 +11,10 @@ use App\Models\Compagnies;
 use App\Models\Aeroports;
 use App\Repositories\VolsRepository;
 
+use App\Mail\VolsEditMail;
+use App\Mail\VolsCreatedMail;
+
+use Illuminate\Support\Facades\Mail;
 
 class VolsController extends Controller
 {
@@ -70,6 +74,9 @@ class VolsController extends Controller
         $newVol = Vols::create($data);
         //$vols = $this->repository->store($request->all());
 
+        //Envoir Un mail quand on créé un vol
+        //Mail::to("hello@example.com")->send(new VolsCreatedMail($vols));
+
         return redirect(route('vols.index'));
     
     }
@@ -108,6 +115,9 @@ class VolsController extends Controller
 
         $vols->update($data);
         //$this->repository->update($vols, $request->all());
+
+        //Envoir un mail lorsque l'on modifie une donnée dans vols
+        //Mail::to("hello@example.com")->send(new VolsEditMail($vols));
 
         return redirect(route('vols.index'))->with('success', 'Vol édité avec succès');
         

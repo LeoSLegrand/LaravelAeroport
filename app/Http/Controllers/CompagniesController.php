@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\CompagniesRequest;
 use App\Repositories\CompagnieRepository;
 
+use App\Mail\CompagnieEditMail;
+use App\Mail\CompagnieCreatedMail;
+
+use Illuminate\Support\Facades\Mail;
 
 class CompagniesController extends Controller
 {
@@ -57,6 +61,9 @@ class CompagniesController extends Controller
         //$newCompany = Compagnies::create($data);
         $compagnies = $this->repository->store($request->all());
 
+        //Envoir Un mail quand on créé une Compagnie
+        Mail::to("hello@example.com")->send(new CompagnieCreatedMail($compagnies));
+
         return redirect(route('compagnies.index'));
     }
 
@@ -86,6 +93,9 @@ class CompagniesController extends Controller
 
         //$compagnies->update($data);
         $this->repository->update($compagnies, $request->all());
+
+        //Envoir un mail lorsque l'on modifie une donnée dans un aéroport
+        Mail::to("hello@example.com")->send(new CompagnieEditMail($compagnies));
 
         return redirect(route('compagnies.index'))->with('success', 'Compagnie édité avec succès');
     }

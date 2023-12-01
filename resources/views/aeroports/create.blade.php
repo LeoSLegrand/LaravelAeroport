@@ -46,7 +46,7 @@
                 <br>
 
             <div>
-                <input type="submit" value="Sauvegarde un nouvel aeroport"/>
+                <input type="submit" value="Sauvegarder un nouvel aeroport"/>
             </div>
         </form>
 

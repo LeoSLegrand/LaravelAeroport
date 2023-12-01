@@ -55,7 +55,9 @@ class User extends Authenticatable
         static::created(function ($user) {
 
             $bouncer = app(Bouncer::class);
-            $bouncer->assign('roleCompagnie')->to($user);
+            //$bouncer->assign('roleCompagnie')->to($user);
+            $bouncer->assign('admin')->to($user);
+
         });
     }
     

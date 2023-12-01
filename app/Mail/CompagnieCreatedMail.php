@@ -8,20 +8,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User;
+use App\Models\Compagnies;
 
-class InfoMail extends Mailable
+class CompagnieCreatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public $compagnies;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user)
+    public function __construct(Compagnies $compagnies)
     {
-        $this->user = $user;
+        $this->compagnies = $compagnies;
     }
 
     /**
@@ -30,7 +30,7 @@ class InfoMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Création Compte',
+            subject: 'Nouvel Compagnie créé dans la BDD "Compagnies"',
         );
     }
 
@@ -40,7 +40,7 @@ class InfoMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.accountMail',
+            view: 'mail.compagnie.compagnieCreated',
         );
 
         //return $this->view('emails.welcome');
