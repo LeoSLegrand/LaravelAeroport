@@ -60,7 +60,7 @@ class AeroportsController extends Controller
         //$newAeroport = Aeroports::create($data);
         $aeroports = $this->repository->store($request->all());
 
-        //Envoir Un mail quand on créé un aéroport
+        //Envoie Un mail quand on créé un aéroport
         Mail::to("hello@example.com")->send(new AeroportCreatedMail($aeroports));
 
 
@@ -94,7 +94,7 @@ class AeroportsController extends Controller
         //$aeroports->update($data);
         $this->repository->update($aeroports, $request->all());
 
-        //Envoir un mail lorsque l'on modifie une donnée dans un aéroport
+        //Envoie un mail lorsque l'on modifie une donnée dans un aéroport
         Mail::to("hello@example.com")->send(new AeroportEditMail($aeroports));
 
         return redirect(route('aeroports.index'))->with('success', 'Aeroport édité avec succès');

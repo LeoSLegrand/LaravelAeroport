@@ -2,7 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Aeroports;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Factory as FakerFactory;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Aeroports>
@@ -23,4 +26,6 @@ class AeroportsFactory extends Factory
             'nombre_piste' => fake()->randomNumber(2),
         ];
     }
+
+    
 }
