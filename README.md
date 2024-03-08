@@ -29,7 +29,7 @@ Si la commande échoue, on doit installer npm avec la commande : <br><br>
 
 > npm npm install<br><br>
 
-Tout compte créé sea de base un compte 'roleCompagnie'.<br> 
+Tout compte créé sera de base un compte 'roleCompagnie'.<br> 
 Pour créer un compte Admin on doit modifier la ligne suivante dans le fichier app\Models\User.php :<br><br>
 
 > $bouncer->assign('roleCompagnie')->to($user); <br>
